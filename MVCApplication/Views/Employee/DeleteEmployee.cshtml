@@ -1,0 +1,58 @@
+﻿@model MVCApplication.Models.Employee
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DeleteEmployee</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Employee</h4>
+        <hr />
+        @using (Html.BeginForm())
+        {
+
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Emp_id)
+                </dt>
+
+                <dd>
+                    @Html.TextBoxFor(model => model.Emp_id)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Emp_mailid)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Emp_mailid)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Emp_salary)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Emp_salary)
+                </dd>
+
+            </dl>
+
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>
