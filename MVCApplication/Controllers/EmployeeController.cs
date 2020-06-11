@@ -94,7 +94,6 @@ namespace MVCApplication.Controllers
             //Updating Employee data from database
             EmployeeContext etc = new EmployeeContext();
             Employee emp1 = etc.emps.Find(emp.Emp_id);
-            ///etc.Entry(emp1).State = EntityState.Modified;
             emp1.Emp_mailid = emp.Emp_mailid;
             emp1.Emp_name = emp.Emp_name;
             emp1.Emp_salary = emp.Emp_salary;
