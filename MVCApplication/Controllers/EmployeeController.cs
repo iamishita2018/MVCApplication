@@ -31,6 +31,15 @@ namespace MVCApplication.Controllers
         // [Route("Employee/InsertEmployee")]
         // [Route("InsertNewEmployee")]
         // [Route("AddNewEmployee")]
+
+
+        //Displaying the table data in grid- get method
+        public ActionResult GetEmployeeDetailsTable(EmployeeContext ec)
+        {
+            var data = ec.emps.ToList();
+            return View(data);
+        }
+
         public ActionResult AddEmployee()
         {
             return View();
@@ -114,8 +123,6 @@ namespace MVCApplication.Controllers
             ViewBag.output = result;
             ViewBag.name = Name;
             return View();
-            //string name = Request.Form["Name"].ToString();
-            //return View("DisplayResultInSameView");
         }
 
         public ActionResult ViewResultFromModel()

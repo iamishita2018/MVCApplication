@@ -185,6 +185,7 @@
     <Content Include="Views\Employee\UpdateEmployee.cshtml" />
     <Content Include="Views\Employee\DisplayResultInSameView.cshtml" />
     <Content Include="Views\Employee\ViewResultFromModel.cshtml" />
+    <Content Include="Views\Employee\GetEmployeeDetailsTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
