@@ -1,0 +1,48 @@
+﻿@*@{
+        Layout = null;
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>DisplayResultInSameView</title>
+    </head>
+    <body>
+        <div>
+        </div>
+    </body>
+    </html>*@
+
+
+@*My View Page where values from textbox will be shown in same page*@
+
+@{
+    ViewBag.Title = "Access TextBox and TextboxFor Value From View To Controller In Asp.net MVC";
+}
+@using (Html.BeginForm("DisplayResultInSameView", "Employee", FormMethod.Post))
+{
+    <br />
+
+    <b>Textbox for displaying Value </b>
+    @Html.TextBox("Name", "")
+    <br />
+    <b>Please enter 1st number</b>
+    @Html.TextBox("num1", "")
+    <br />
+    <b>Please enter 2nd number</b>
+    @Html.TextBox("num2", "")
+    <br />
+    <input type="submit" value="Submit TextBox" />
+    <br />
+    @ViewBag.name
+    <br />
+    if (@ViewBag.output != null)
+    {
+        <b>The addtion of two numbers is: </b>
+        @ViewBag.output
+
+    }
+
+}

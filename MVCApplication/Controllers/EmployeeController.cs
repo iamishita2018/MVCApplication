@@ -26,10 +26,11 @@ namespace MVCApplication.Controllers
         {
             return View();
         }
+
         //using Route attribute we need to call a method in RouteConfig.cs
-       // [Route("Employee/InsertEmployee")]
-       // [Route("InsertNewEmployee")]
-       // [Route("AddNewEmployee")]
+        // [Route("Employee/InsertEmployee")]
+        // [Route("InsertNewEmployee")]
+        // [Route("AddNewEmployee")]
         public ActionResult AddEmployee()
         {
             return View();
@@ -99,6 +100,38 @@ namespace MVCApplication.Controllers
             emp1.Emp_salary = emp.Emp_salary;
             etc.SaveChanges();
             return View();
+        }
+
+        //Returing values of a textbox in the same view
+        public ActionResult DisplayResultInSameView()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult DisplayResultInSameView(string Name,int num1,int num2)
+        {
+            int result = num1 + num2;
+            ViewBag.output = result;
+            ViewBag.name = Name;
+            return View();
+            //string name = Request.Form["Name"].ToString();
+            //return View("DisplayResultInSameView");
+        }
+
+        public ActionResult ViewResultFromModel()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ViewResultFromModel(MyViewModel mvm)
+        {
+            //Displaying the result from model properties-ViewModel
+            int i, j;
+            i = mvm.num1;
+            j = mvm.num2;
+            mvm.Result = i + j;
+            return View(mvm);
         }
 
         public ActionResult CustomErrors()
