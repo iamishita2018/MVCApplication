@@ -111,6 +111,12 @@ namespace MVCApplication.Controllers
             return View();
         }
 
+        //Displaying Partial View through action method
+        public PartialViewResult MyView()
+        {
+            return PartialView("~/Views/MyPartialViewTest.cshtml");
+        }
+
         //Returing values of a textbox in the same view
         public ActionResult DisplayResultInSameView()
         {

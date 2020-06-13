@@ -7,10 +7,10 @@
 <h2>AddEmployee</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Employee</h4>
         <hr />
@@ -54,6 +54,21 @@
         </div>
     </div>
 }
+
+@*Rendering Partial View In AddEmployee view*@
+
+<div>
+    @{
+        Html.RenderPartial("~/Views/MyPartialViewTest.cshtml");
+    }
+</div>
+<div class="container body-content">
+
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.ToString("MM/dd/yyyy") - My ASP.NET MVC Application</p>
+    </footer>
+</div>
 
 <div>
     @Html.ActionLink("Back to List", "Index")

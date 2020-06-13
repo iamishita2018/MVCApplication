@@ -186,6 +186,7 @@
     <Content Include="Views\Employee\DisplayResultInSameView.cshtml" />
     <Content Include="Views\Employee\ViewResultFromModel.cshtml" />
     <Content Include="Views\Employee\GetEmployeeDetailsTable.cshtml" />
+    <Content Include="Views\MyPartialViewTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
