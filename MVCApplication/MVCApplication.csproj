@@ -127,6 +127,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\MyTestArea\Controllers\MyMVCAreaController.cs" />
+    <Compile Include="Areas\MyTestArea\MyTestAreaAreaRegistration.cs" />
     <Compile Include="ContextClass\EmployeeContextClass.cs" />
     <Compile Include="Controllers\CustomErrorsController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -152,6 +154,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\MyTestArea\Views\web.config" />
+    <Content Include="Areas\MyTestArea\Views\MyMVCArea\DisplayData.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -190,6 +194,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\MyTestArea\Data\" />
+    <Folder Include="Areas\MyTestArea\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

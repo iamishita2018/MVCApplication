@@ -1,0 +1,33 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisplayData</title>
+</head>
+<body>
+    <div>
+        <h2>This is my area...Please do not disturb...No tracepassing...</h2>
+        <br />
+
+        <div>
+            @{
+                Html.RenderPartial("~/Views/MyPartialViewTest.cshtml");
+            }
+        </div>
+
+        <hr />
+        <footer>
+            <p>
+                &copy; @DateTime.Now.ToString("MM/dd/yyyy") - My ASP.NET MVC Application and
+                this page displays the Area module
+            </p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -14,6 +14,7 @@ namespace MVCApplication
     {
         protected void Application_Start()
         {
+            //For registering Areas in MVC
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
