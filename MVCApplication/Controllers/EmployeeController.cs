@@ -12,6 +12,8 @@ using MVCApplication.Filters;
 using Antlr.Runtime.Misc;
 using MVCApplication.ContextClass;
 using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace MVCApplication.Controllers
 {
@@ -33,9 +35,58 @@ namespace MVCApplication.Controllers
         // [Route("AddNewEmployee")]
 
 
-        //Displaying the table data in grid- get method
-        public ActionResult GetEmployeeDetailsTable(EmployeeContext ec)
+        //Displaying the rest fields after selecting values from drop down
+        public ActionResult GetDropdownValue(Employee e1)
         {
+            var res = new EmployeeContext();            
+            e1.EmpIdList = res.emps.Select(emp =>
+            new SelectListItem { Value = emp.Emp_id.ToString(), Text = emp.Emp_id.ToString() }).ToList();
+                
+            return View(e1);
+        }
+        [HttpPost]
+        [ActionName("GetDropdownValue")]
+        public ActionResult GetDropdownValue2(string bt,Employee Emp)
+        {
+            var res = new EmployeeContext();
+            //Get data for the corresponding employee id selected from drop down
+            if (bt == "Get Data")
+            {
+                string Emp_id = Emp.Emp_id.ToString();
+                
+                if (Emp_id == "")
+                {
+
+                    Employee e1 = new Employee();
+                    e1.EmpIdList = res.emps.Select(emp =>
+                    new SelectListItem { Value = emp.Emp_id.ToString(), Text = emp.Emp_id.ToString() }).ToList();
+                    return View(e1);
+                }
+                ViewBag.Post = "yes";
+
+                Employee emp1 = res.emps.Find(Convert.ToInt32(Emp_id));
+                emp1.EmpIdList = res.emps.Select(emp =>
+                new SelectListItem { Value = emp.Emp_id.ToString(), Text = emp.Emp_id.ToString() }).ToList();
+                ModelState.Clear();
+                return View("GetDropdownValue", emp1);
+            }
+            else
+            {
+                //Updating the dropdown values in database
+                Employee emp1 = res.emps.Find(Convert.ToInt32(Emp.Emp_id));
+                emp1.Emp_mailid = Emp.Emp_mailid;
+                emp1.Emp_name = Emp.Emp_name;
+                emp1.Emp_salary = Emp.Emp_salary;
+                res.SaveChanges();
+                return RedirectToAction("GetEmployeeDetailsTable");
+            }
+        }
+
+
+        //Displaying the table data in grid- get method
+        public ActionResult GetEmployeeDetailsTable()
+        {
+            EmployeeContext ec = new EmployeeContext();     
             var data = ec.emps.ToList();
             return View(data);
         }

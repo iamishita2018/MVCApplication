@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MVCApplication.Models
 {
@@ -11,8 +12,9 @@ namespace MVCApplication.Models
     {
         [Required(ErrorMessage = "The Employee Id should not be blank.")]
         [Key]
-     [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Emp_id { get; set; }
+        public IEnumerable<SelectListItem> EmpIdList { get; set; }
         [Required(ErrorMessage ="The name field cannot be blank.")]
         [MinLength(4, ErrorMessage = "The Employee Name must be atleast 4 characters")]
         [MaxLength(20, ErrorMessage = "The Employee Name cannot be more than 20 characters")]
@@ -26,5 +28,7 @@ namespace MVCApplication.Models
         [Range(30000, 70000)]
         [DisplayFormat(DataFormatString = "{0:#.####}")]
         public int Emp_salary { get; set; }
+
+       
     }
 }
