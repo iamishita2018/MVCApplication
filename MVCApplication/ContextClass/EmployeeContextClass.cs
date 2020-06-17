@@ -12,10 +12,6 @@ namespace MVCApplication.ContextClass
         
         public DbSet<Employee> emps { get; set; }
 
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-        //    Database.SetInitializer<EmployeeContext>(null);
-        //    base.OnModelCreating(modelBuilder);
-        //}
+        public System.Data.Entity.DbSet<MVCApplication.Models.LoginPage> LoginPages { get; set; }
     }
 }

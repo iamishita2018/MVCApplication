@@ -133,6 +133,7 @@
     <Compile Include="Controllers\CustomErrorsController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Filters\MyActionFilter.cs" />
     <Compile Include="Filters\MyErrorFilter.cs" />
     <Compile Include="Filters\MyResultFilter.cs" />
@@ -140,6 +141,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\LoginPage.cs" />
     <Compile Include="Models\MyViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -192,6 +194,7 @@
     <Content Include="Views\Employee\GetEmployeeDetailsTable.cshtml" />
     <Content Include="Views\MyPartialViewTest.cshtml" />
     <Content Include="Views\Employee\GetDropdownValue.cshtml" />
+    <Content Include="Views\Login\LoginDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
