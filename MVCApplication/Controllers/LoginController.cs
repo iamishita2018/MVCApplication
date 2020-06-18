@@ -23,23 +23,35 @@ namespace MVCApplication.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public ActionResult LoginDetails(LoginPage lp)
         {
             LoginPage log = new LoginPage();
             EmployeeContext ec = new EmployeeContext();
-            var res = ec.LoginPages.SingleOrDefault(x => x.UserName == lp.UserName 
-            && x.Password == lp.Password);
-            if (res == null)//invalid credentials
+            if (ModelState.IsValid)
             {
-                ModelState.AddModelError("", "Invalid Username or password");
-                return View();
+                var res = ec.LoginPages.SingleOrDefault(x => x.UserName == lp.UserName
+                && x.Password == lp.Password);
+                if (res != null)
+                {
+                    Session["UserName"] = res.UserName;
+                    return RedirectToAction("GetEmployeeDetailsTable", "Employee");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid User Name or Password");
+                    return View(lp);
+                }
             }
             else
             {
-                return RedirectToAction("GetEmployeeDetailsTable", "Employee");
+                return View();
             }
-                
+
+        }
+
+        public string UnAuthorized()
+        {
+            return "You are not authorized to view this page";
         }
 
     }

@@ -36,6 +36,7 @@ namespace MVCApplication.Controllers
 
 
         //Displaying the rest fields after selecting values from drop down
+        [MyAuthorizeFilter]
         public ActionResult GetDropdownValue(Employee e1)
         {
             var res = new EmployeeContext();            
@@ -46,6 +47,7 @@ namespace MVCApplication.Controllers
         }
         [HttpPost]
         [ActionName("GetDropdownValue")]
+        [MyAuthorizeFilter]
         public ActionResult GetDropdownValue2(string bt,Employee Emp)
         {
             var res = new EmployeeContext();
@@ -84,6 +86,7 @@ namespace MVCApplication.Controllers
 
 
         //Displaying the table data in grid- get method
+        [MyAuthorizeFilter]
         public ActionResult GetEmployeeDetailsTable()
         {
             EmployeeContext ec = new EmployeeContext();     
@@ -91,11 +94,13 @@ namespace MVCApplication.Controllers
             return View(data);
         }
 
+        [MyAuthorizeFilter]
         public ActionResult AddEmployee()
         {
             return View();
         }
         [HttpPost]
+        [MyAuthorizeFilter]
         public ActionResult AddEmployee(Employee emp)
         {
             //Creating custom exception-Divide by zero exception
@@ -127,12 +132,14 @@ namespace MVCApplication.Controllers
                 return View();
         }
 
+        [MyAuthorizeFilter]
         public ActionResult DeleteEmployee()
         {
             return View();
         }
         
         [HttpPost]
+        [MyAuthorizeFilter]
         public ActionResult DeleteEmployee(Employee Emp)
         {
             //Deleting Employees from database
@@ -143,6 +150,7 @@ namespace MVCApplication.Controllers
             return View();
         }
 
+        [MyAuthorizeFilter]
         public ActionResult UpdateEmployee()
         {
             return View();
@@ -150,6 +158,7 @@ namespace MVCApplication.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [MyAuthorizeFilter]
         public ActionResult UpdateEmployee([Bind(Include ="Emp_id,Emp_name,Emp_mailid,Emp_salary")]Employee emp)
         {
             //Updating Employee data from database
@@ -169,11 +178,13 @@ namespace MVCApplication.Controllers
         }
 
         //Returing values of a textbox in the same view
+        [MyAuthorizeFilter]
         public ActionResult DisplayResultInSameView()
         {
             return View();
         }
         [HttpPost]
+        [MyAuthorizeFilter]
         public ActionResult DisplayResultInSameView(string Name,int num1,int num2)
         {
             int result = num1 + num2;
@@ -182,12 +193,14 @@ namespace MVCApplication.Controllers
             return View();
         }
 
+        [MyAuthorizeFilter]
         public ActionResult ViewResultFromModel()
         {
             return View();
         }
 
         [HttpPost]
+        [MyAuthorizeFilter]
         public ActionResult ViewResultFromModel(MyViewModel mvm)
         {
             //Displaying the result from model properties-ViewModel
